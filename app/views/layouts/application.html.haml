@@ -14,7 +14,7 @@
     %link(href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon-precomposed" sizes="114x114")
     %link(href="images/apple-touch-icon-72x72.png" rel="apple-touch-icon-precomposed" sizes="72x72")
     %link(href="images/apple-touch-icon.png" rel="apple-touch-icon-precomposed")
-    %link(href="favicon.ico" rel="shortcut icon")
+    - favicon_link_tag 'favicon.ico'
 
 
   %body
@@ -36,6 +36,7 @@
         .span9
           = bootstrap_flash
           = yield
+          = render_breadcrumbs
         .span3
           .well.sidebar-nav
             %h3 Categories
@@ -44,7 +45,7 @@
               - if @tags.empty?
                 %li No tags found. Tag some books to find them easier!
               - @tags.each do |tag|
-                %li= link_to tag.name, books_path(params.merge(tag_id: tag.id))
+                %li= link_to tag.name, tag_path(tag)
       %footer
         %p &copy; Chase Conklin 2013
     /

@@ -1,0 +1,6 @@
+= simple_form_for @book, html: {class: 'form-horizontal'} do |f|
+  = f.input :title, :input_html => { :class => "span4" }
+  = f.input :author, :input_html => { :class => "span4" }
+  = f.input :tag_names, :input_html => { :class => "span4"}, :label => "Tags", :hint => "Separated by commas"
+  
+  = f.submit :class => "btn btn-primary"

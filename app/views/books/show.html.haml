@@ -1,0 +1,15 @@
+%h2= @book.title
+%p.author= "by #{@book.author}"
+.well
+  .btn.btn-large.btn-primary
+    Download
+
+.well
+  %div
+    Tags: 
+    = tag_links(@book)
+.btn-group
+  .btn
+    = link_to "Edit", edit_book_path(@book), class: "blacktxt nolink"
+  .btn.btn-danger
+    = link_to "Delete", book_path(@book), method: :delete, confirm: "Are you sure? This book will be deleted forever (a long time).", class: "whitetxt nolink"

@@ -34,6 +34,9 @@ gem 'jbuilder', '~> 1.0.1'
 gem "devise"
 gem "cancan"
 
+# Use simple_form for form building
+gem "simple_form"
+
 # Use thin as webserver
 gem 'thin'
 
