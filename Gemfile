@@ -45,7 +45,7 @@ gem 'twitter-bootstrap-rails'
 # Use carrierwave for uploads
 gem 'carrierwave'
 
-group :test do
+group :test, :development do
   gem 'rspec-rails'
 end
 
