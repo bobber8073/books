@@ -30,9 +30,6 @@
           .container.nav-collapse
             %ul.nav
               %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
-
     .container
 
       .row
@@ -44,10 +41,10 @@
             %h3 Categories
             %ul.nav.nav-list
               %li.nav-header I'm Looking For
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
-    
+              - if @tags.empty?
+                %li No tags found. Tag some books to find them easier!
+              - @tags.each do |tag|
+                %li= link_to tag.name, books_path(params.merge(tag_id: tag.id))
       %footer
         %p &copy; Chase Conklin 2013
     /

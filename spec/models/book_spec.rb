@@ -32,4 +32,14 @@ describe Book do
     
   end
   
+  it "can find by tags" do
+    book1 = Book.create name: "Test Book", author: "Test Author"
+    book2 = Book.create name: "Another Test Book", author: "Test Author"
+    tag = Tag.create name: "Testing"
+    book1.tags << tag
+    
+    expect(Book.with_tag(tag.id).first).to eq(book1)
+    
+  end
+  
 end
