@@ -18,7 +18,7 @@ class BookUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "/Users/chase/Rails/books/uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -54,6 +54,10 @@ class BookUploader < CarrierWave::Uploader::Base
     def full_filename (for_file = model.logo.file) 
       "#{for_file}.png" 
     end
+    def store_dir
+      "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    end
+    
   end
   
   # version :big do

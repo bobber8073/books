@@ -3,12 +3,16 @@ module BooksHelper
     return unless tag_id
     tag = Tag.find(tag_id)
     content_tag :div, class: ["alert", "alert-info"] do
-      content_tag(:div, raw("Viewing: books tagged with #{tag.name} (#{link_to "clear", books_path})"))
+      content_tag(:div, raw("Viewing books tagged with: #{tag.name} (#{link_to "clear", books_path})"))
     end
   end
   
   def tag_links(book)
     raw(book.tags.map { |t| link_to t.name, tag_path(t) }.join(", "))
+  end
+  
+  def download_path(book)
+    "#{book.id}/#{book.pdf.url.split("/")[-1]}"
   end
   
 end

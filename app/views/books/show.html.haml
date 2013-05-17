@@ -3,9 +3,11 @@
 .well
   %p
     = simple_format @book.description
+%p
   - if can? :download, @book
     .btn.btn-large.btn-primary.nolink
-      = link_to "Download", @book.pdf.url, class: "nolink whitetxt"
+      = link_to "Download", download_path(@book), class: "nolink whitetxt"
+
 .well
   %div
     Tags: 

@@ -49,6 +49,7 @@ Books::Application.routes.draw do
   #   end
   
   root to: "books#index"
+  get '/books/:id/:basename.:extension' => 'books#download'
   resources :books
   
 end

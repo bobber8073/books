@@ -66,4 +66,11 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :author, :pdf, :description)
   end
+  
+  def download
+    @book = Book.find(params[:id])
+    authorize! :download, @book
+    send_file @book.pdf.path, :x_sendfile=>true
+  end
+  
 end

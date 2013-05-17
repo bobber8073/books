@@ -2,7 +2,7 @@
   = f.input :title, :input_html => { :class => "span4" }
   = f.input :author, :input_html => { :class => "span4" }
   = f.input :description, :input_html => { :class => "span4" }
-  = f.label :upload_pdf
+  = f.label "Upload PDF"
   .fileupload.fileupload-new{"data-provides" => "fileupload"}
     .input-append
       .uneditable-input.span3
@@ -11,7 +11,7 @@
       %span.btn.btn-file
         %span.fileupload-new Select file
         %span.fileupload-exists Change
-        %input{:type => "file", :id => "book_pdf", :name => "book[pdf]"}/
+        = f.input_field :pdf
       %a.btn.fileupload-exists{"data-dismiss" => "fileupload", :href => "#"} Remove
   = f.input :tag_names, :input_html => { :class => "span4"}, :label => "Tags", :hint => "Separated by commas"
   
