@@ -1,7 +1,9 @@
 class Book < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
-  validates :title, :author, presence: true
+  validates :title, :author, :description, presence: true
+  
+  mount_uploader :pdf, BookUploader
   
   def self.with_tag(tag_id)
     return Book.all unless tag_id

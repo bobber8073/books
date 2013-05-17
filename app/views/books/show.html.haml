@@ -1,9 +1,10 @@
 %h2= @book.title
 %p.author= "by #{@book.author}"
 .well
-  .btn.btn-large.btn-primary
-    Download
-
+  %p
+    = simple_format @book.description
+  .btn.btn-large.btn-primary.nolink
+    = link_to "Download", @book.pdf.url, class: "nolink whitetxt"
 .well
   %div
     Tags: 

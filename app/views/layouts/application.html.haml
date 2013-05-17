@@ -29,7 +29,7 @@
             %i.icon-book
           .container.nav-collapse
             %ul.nav
-              %li= link_to "Link 1", "/path1"
+              %li= link_to "New Book", new_book_path
     .container
 
       .row
@@ -39,7 +39,6 @@
           = render_breadcrumbs
         .span3
           .well.sidebar-nav
-            %h3 Categories
             %ul.nav.nav-list
               %li.nav-header I'm Looking For
               - if @tags.empty?
