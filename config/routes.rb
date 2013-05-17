@@ -49,7 +49,7 @@ Books::Application.routes.draw do
   #   end
   
   root to: "books#index"
-  get '/books/:id/download' => 'books#download'
+  post '/books/:id/download' => 'books#download'
   resources :books
   
 end
