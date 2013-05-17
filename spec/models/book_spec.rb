@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Book do
   it "can be tagged" do
-    book = Book.new name: "Test Book", author: "Test Author"
+    book = Book.new title: "Test Book", author: "Test Author"
     tag = Tag.new name: "Testing"
     
     expect(book.tags.include? tag).to be_false
@@ -13,7 +13,7 @@ describe Book do
   end
   
   it "can have multiple tags" do
-    book = Book.new name: "Test Book", author: "Test Author"
+    book = Book.new title: "Test Book", author: "Test Author"
     tag1 = Tag.new name: "Testing"
     tag2 = Tag.new name: "Multiple tags"
     
@@ -33,8 +33,10 @@ describe Book do
   end
   
   it "can find by tags" do
-    book1 = Book.create name: "Test Book", author: "Test Author"
-    book2 = Book.create name: "Another Test Book", author: "Test Author"
+    book1 = Book.new title: "Test Book", author: "Test Author", description: "Details"
+    book2 = Book.new title: "Another Test Book", author: "Test Author", description: "Details"
+    book1.save validate: false
+    book2.save validate: false
     tag = Tag.create name: "Testing"
     book1.tags << tag
     

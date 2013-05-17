@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Tag do
   it "tags an book" do
-    book = Book.new name: "Test Book", author: "Test Author"
+    book = Book.new title: "Test Book", author: "Test Author"
     tag = Tag.new name: "Testing"
     
     expect(tag.books.include? book).to be_false
@@ -13,8 +13,8 @@ describe Tag do
   end
   
   it "can have multiple books" do
-    book1 = Book.new name: "Test Book", author: "Test Author"
-    book2 = Book.new name: "Another Test Book", author: "Test Author"
+    book1 = Book.new title: "Test Book", author: "Test Author"
+    book2 = Book.new title: "Another Test Book", author: "Test Author"
     tag = Tag.new name: "Testing"
     
     expect(tag.books.include? book1).to be_false
