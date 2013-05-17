@@ -29,13 +29,13 @@
             %i.icon-book
           .container.nav-collapse
             %ul.nav
-              %li.dropdown
-                %a.dropdown-toggle{"data-toggle" => "dropdown", "data-target" => "#"} Books
-                %ul.dropdown-menu{"aria-labelledby" => "dLabel", :role => "menu"}
-                  %li
-                    - if can? :create, Book
-                      = link_to "Add Book", new_book_path
-                  - if current_user
+              - if current_user
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", "data-target" => "#"} Books
+                  %ul.dropdown-menu{"aria-labelledby" => "dLabel", :role => "menu"}
+                    %li
+                      - if can? :create, Book
+                        = link_to "Add Book", new_book_path
                     %li.divider
                     %li.disabled
                       %a
@@ -43,9 +43,9 @@
                         = current_user.username
                     %li                  
                       = link_to "Sign Out", destroy_user_session_path, :method => :delete
-                  - else
-                    %li
-                      = link_to "Sign In", new_user_session_path
+              - else
+                %li
+                  = link_to "Sign In", new_user_session_path
             %ul.nav.pull-right
               %form.navbar-search
                 %input.search-query{:placeholder => "Search", :type => "text", :id => "filter"}

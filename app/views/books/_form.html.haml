@@ -2,7 +2,7 @@
   = f.input :title, :input_html => { :class => "span4" }
   = f.input :author, :input_html => { :class => "span4" }
   = f.input :description, :input_html => { :class => "span4" }
-  = f.label "Upload PDF"
+  = f.label "Upload PDF", :required => true
   .fileupload.fileupload-new{"data-provides" => "fileupload"}
     .input-append
       .uneditable-input.span3
