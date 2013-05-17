@@ -12,7 +12,7 @@ module BooksHelper
   end
   
   def download_path(book)
-    "#{book.id}/#{book.pdf.url.split("/")[-1]}"
+    "#{book.id}/download"
   end
   
 end

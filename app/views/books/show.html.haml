@@ -6,6 +6,7 @@
 %p
   - if can? :download, @book
     .btn.btn-large.btn-primary.nolink
+      %i.icon-download-alt.nolink.whitetxt
       = link_to "Download", download_path(@book), class: "nolink whitetxt"
 
 .well
