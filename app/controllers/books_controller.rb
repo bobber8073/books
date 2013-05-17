@@ -6,6 +6,7 @@ class BooksController < ApplicationController
   
   def new
     expires_now
+    authorize! :create, Book
     @book = Book.new
     add_breadcrumb "New Book", new_book_path
   end
@@ -13,6 +14,7 @@ class BooksController < ApplicationController
   def create
     expires_now
     @book = Book.new(book_params)
+    authorize! :create, @book
     @book.tag_names = params[:book][:tag_names]
     if @book.save
       flash[:notice] = "#{@book.title} added"
@@ -31,12 +33,14 @@ class BooksController < ApplicationController
   def edit
     expires_now
     @book = Book.find params[:id]
+    authorize! :update, @book
     add_breadcrumb @book.title, book_path(@book)    
   end
   
   def update
     expires_now
     @book = Book.find params[:id]
+    authorize! :update, @book
     @book.update_attributes!(book_params)   
     @book.tag_names = params[:book][:tag_names]
     if @book.save
@@ -50,6 +54,7 @@ class BooksController < ApplicationController
   
   def destroy
     @book = Book.find params[:id]
+    authorize! :destroy, @book
     if @book.destroy
       flash[:warning] = "\"#{@book.title}\" was deleted."
     else

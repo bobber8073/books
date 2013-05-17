@@ -1,0 +1,9 @@
+%h2 Sign in
+= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+  .inputs
+    = f.input :username, :required => false, :autofocus => true
+    = f.input :password, :required => false
+    /= f.input :remember_me, :as => :boolean, :inline_label => true
+  .actions
+    = f.button :submit, "Sign in", class: "btn btn-primary"
+/ = render :partial => "devise/shared/links"

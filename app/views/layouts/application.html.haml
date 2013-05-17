@@ -28,8 +28,11 @@
           %a.brand(href="/")
             %i.icon-book
           .container.nav-collapse
-            %ul.nav
-              %li= link_to "New Book", new_book_path
+            - if can? :create, Book
+              %ul.nav
+                %li= link_to "New Book", new_book_path
+            %ul.nav.pull-right
+              %li=user_info
     .container
 
       .row

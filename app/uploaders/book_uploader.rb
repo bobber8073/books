@@ -39,6 +39,7 @@ class BookUploader < CarrierWave::Uploader::Base
   def convert_to_png
     file = @file.instance_eval {@file}
     img = Magick::Image.read(file + "[0]").first
+    img.resize!(220, 285)
     img.write(file + ".png")
     @file.instance_eval do 
       @file = file + ".png"
@@ -49,8 +50,10 @@ class BookUploader < CarrierWave::Uploader::Base
   # Create different versions of your uploaded files:
   version :thumb do
     process :convert_to_png
-    resize_to_fill!(220, 285)
-    
+    process :convert => 'png'
+    def full_filename (for_file = model.logo.file) 
+      "#{for_file}.png" 
+    end
   end
   
   # version :big do
@@ -61,12 +64,6 @@ class BookUploader < CarrierWave::Uploader::Base
   def extension_white_list
      %w(pdf)
   end
-   
-  def filename 
-    if original_filename 
-      original_filename + ".png"
-    end
-  end 
    
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.

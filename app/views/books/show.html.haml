@@ -3,14 +3,16 @@
 .well
   %p
     = simple_format @book.description
-  .btn.btn-large.btn-primary.nolink
-    = link_to "Download", @book.pdf.url, class: "nolink whitetxt"
+  - if can? :download, @book
+    .btn.btn-large.btn-primary.nolink
+      = link_to "Download", @book.pdf.url, class: "nolink whitetxt"
 .well
   %div
     Tags: 
     = tag_links(@book)
-.btn-group
-  .btn
-    = link_to "Edit", edit_book_path(@book), class: "blacktxt nolink"
-  .btn.btn-danger
-    = link_to "Delete", book_path(@book), method: :delete, confirm: "Are you sure? This book will be deleted forever (a long time).", class: "whitetxt nolink"
+- if can? :manage, @book
+  .btn-group
+    .btn
+      = link_to "Edit", edit_book_path(@book), class: "blacktxt nolink"
+    .btn.btn-danger
+      = link_to "Delete", book_path(@book), method: :delete, confirm: "Are you sure? This book will be deleted forever (a long time).", class: "whitetxt nolink"
