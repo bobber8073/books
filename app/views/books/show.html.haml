@@ -5,9 +5,9 @@
     = simple_format @book.description
 %p
   - if can? :download, @book
-    .btn.btn-large.btn-primary.nolink
-      %i.icon-download-alt.nolink.whitetxt
-      = link_to "Download", download_path(@book), class: "nolink whitetxt", :method => :post
+    = button_to download_path(@book), class: "whitetxt btn btn-primary btn-large", :method => :post do
+      %i.icon-download-alt.whitetxt
+      Download
 
 .well
   %div
