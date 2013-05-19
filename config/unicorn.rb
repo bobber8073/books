@@ -28,6 +28,7 @@ before_fork do |server, worker|
     ActiveRecord::Base.connection.disconnect!
 end
 
+
 after_fork do |server, worker|
   defined?(ActiveRecord::Base) and
     ActiveRecord::Base.establish_connection

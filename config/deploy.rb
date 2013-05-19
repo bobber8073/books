@@ -6,7 +6,7 @@ set :default_environment, {
 }
 
 
-# set :rvm_ruby_string, 'ruby-1.9.3-p327@books_sales'
+set :rvm_ruby_string, 'ruby-2.0.0-p195@books'
 set :rvm_type, :user 
 
 set :application, "books"
@@ -33,6 +33,7 @@ set :unicorn_pid, "#{current_path}/tmp/pids/unicorn.pid"
 
 # hook for the symlink
 after "deploy:finalize_update", :after_update_code
+
 
 # create a symlink to the application.yml file
 # task :after_update_code do
