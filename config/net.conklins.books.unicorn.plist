@@ -1,0 +1,25 @@
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>net.conklins.books.unicorn</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/deployer/.rvm/bin/books_unicorn</string>
+    <string>-c</string>
+    <string>/Users/deployer/Rails_Sites/books/current/config/unicorn.rb</string>
+    <string>-E</string>
+    <string>production</string>
+    </array>
+  <key>StandardErrorPath</key>
+  <string>/Users/deployer/Rails_Sites/books/current/log/books.unicorn_launchd.stderr.log</string>
+  <key>StandardOutPath</key>
+  <string>/Users/deployer/Rails_Sites/books/current/log/books.unicorn_launchd.stdout.log</string>
+  <key>KeepAlive</key>
+  <true />
+  <key>UserName</key>
+  <string>deployer</string>
+  <key>WorkingDirectory</key>
+    <string>/Users/deployer/Rails_Sites/books/current</string>
+  </dict>
+</plist>
