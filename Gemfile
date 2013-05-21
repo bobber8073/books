@@ -66,7 +66,7 @@ end
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
-group :development do
+group :production do
   gem 'unicorn'
 end
 
