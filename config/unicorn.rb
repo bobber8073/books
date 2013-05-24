@@ -14,7 +14,7 @@ worker_processes 4
 APP_PATH = "#{File.expand_path(File.dirname(File.dirname(__FILE__)))}" # NO trailing slash
 
 working_directory APP_PATH
-listen "/tmp/carbon.sock", :backlog => 64
+listen "/tmp/books.sock", :backlog => 64
 listen 8084, :tcp_nopush => true
 timeout 30
 pid APP_PATH + "/tmp/pids/unicorn.pid"
