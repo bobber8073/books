@@ -46,6 +46,7 @@ gem 'thin'
 gem "therubyracer"
 gem "less-rails"
 gem 'twitter-bootstrap-rails'
+gem "font-awesome-rails"
 
 # Use carrierwave for uploads
 gem 'carrierwave'
