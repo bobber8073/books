@@ -15,4 +15,4 @@
       %a.btn.fileupload-exists{"data-dismiss" => "fileupload", :href => "#"} Remove
   = f.input :tag_names, :input_html => { :class => "span4"}, :label => "Tags", :hint => "Separated by commas"
   
-  = f.submit :class => "btn btn-primary"
+  = f.submit :class => "btn btn-primary", 'data-disable-with' => "Please wait..."
