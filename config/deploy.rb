@@ -32,7 +32,7 @@ set :unicorn_config, "#{current_path}/config/unicorn.rb"
 set :unicorn_pid, "#{current_path}/tmp/pids/unicorn.pid"
 
 # hook for the symlink
-# after "deploy:finalize_update", :after_update_code
+after "deploy:finalize_update", :after_update_code
 
 
 # create a symlink to the application.yml file
