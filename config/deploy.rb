@@ -32,13 +32,14 @@ set :unicorn_config, "#{current_path}/config/unicorn.rb"
 set :unicorn_pid, "#{current_path}/tmp/pids/unicorn.pid"
 
 # hook for the symlink
-# after "deploy:finalize_update", :after_update_code
+after "deploy:finalize_update", :after_update_code
 
 
 # create a symlink to the application.yml file
-# task :after_update_code do
-#   run "ln -s #{shared_path}/application.yml #{release_path}/config/application.yml"
-# end
+task :after_update_code do
+#  run "ln -s #{shared_path}/application.yml #{release_path}/config/application.yml"
+  run "ln -s #{shared_path}/uploads #{release_path}/uploads"
+end
 
 
 # restarts the unicorn processes
