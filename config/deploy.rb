@@ -11,7 +11,7 @@ set :rvm_type, :user
 
 set :application, "books"
 set :domain, "books.conklins.net"
-set :repository,  "git@github.com:bobber8073/books.git"
+set :repository,  "git@github.com:cconklin/books.git"
 set :user, "deployer"
 set :use_sudo, false
 set :deploy_to, "/Users/deployer/Rails_Sites/books"
