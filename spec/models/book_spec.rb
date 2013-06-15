@@ -40,7 +40,7 @@ describe Book do
     tag = Tag.create name: "Testing"
     book1.tags << tag
     
-    expect(Book.with_tag(tag.id).first).to eq(book1)
+    expect(Book.with_tags(Marshal.dump(Array tag.id)).first).to eq(book1)
     
   end
   

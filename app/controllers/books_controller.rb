@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   
   def index
-    @books = Book.with_tag params[:tag_id]
+    @books = Book.with_tags params[:tags]
   end
   
   def new

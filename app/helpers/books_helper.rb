@@ -1,9 +1,11 @@
 module BooksHelper
-  def tag_filter(tag_id)
-    return unless tag_id
-    tag = Tag.find(tag_id)
+  def tag_filter(tags)
+    return unless tags
+    tag_ids = Marshal.load(tags)
     content_tag :div, class: ["alert", "alert-info"] do
-      content_tag(:div, raw("Viewing books tagged with: #{tag.name} (#{link_to "clear", books_path})"))
+      content_tag(:div) do # , raw("Viewing books tagged with: #{tag.name} (#{link_to "clear", books_path})"))
+        ("Viewing books tagged with: " + Tag.where(id: tag_ids).map { |tag| link_to tag.name, remove_tag_path(tag) }.join(", ")).html_safe
+      end
     end
   end
   
