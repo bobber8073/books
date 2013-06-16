@@ -6,10 +6,9 @@ class Book < ActiveRecord::Base
   mount_uploader :pdf, BookUploader
   validates :pdf, :presence => true, :unless => :pdf_exists?
   
-  def self.with_tags(serialized_tags)
-    return Book.all unless serialized_tags
-    tags = Marshal.load serialized_tags
-    Book.where id: Tagging.select("book_id").where("tag_id" => tags).group("book_id").having("count(tag_id) >= ?", tags.count).map(&:book_id)
+  def self.with_tags(tags)
+    return Book.all unless tags
+    Book.where id: Tagging.select("book_id").where("tag_id" => tags.map(&:to_i)).group("book_id").having("count(tag_id) >= ?", tags.count).map(&:book_id)
   end
   
   def tag_names=(tags)
