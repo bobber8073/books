@@ -11,7 +11,7 @@ class Book < ActiveRecord::Base
     Book.where id: Tagging.select("book_id").where("tag_id" => tags.map(&:to_i)).group("book_id").having("count(tag_id) >= ?", tags.count).map(&:book_id)
   end
   
-  def tag_names=(tags)
+  def set_tag_names(tags)
     self.taggings.destroy_all
     tags.split(",").map(&:strip).each do |t|
       tag = Tag.find_or_create(t)
@@ -20,8 +20,12 @@ class Book < ActiveRecord::Base
     self
   end
   
+  def tag_names=(tag_names)
+    @tag_names = tag_names
+  end
+  
   def tag_names
-    tags.map(&:name).join(", ")
+    @tag_names ||= tags.map(&:name).join(", ")
   end
   
   def pdf_exists?

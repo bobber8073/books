@@ -2,12 +2,14 @@ class BooksController < ApplicationController
   
   def index
     @books = Book.with_tags params[:tags]
+    @book_tags = Tag.where(id: params[:tags])
   end
   
   def new
     expires_now
     authorize! :create, Book
     @book = Book.new
+    @book.tag_names = params[:book][:tag_names] if params[:book]
     add_breadcrumb "New Book", new_book_path
   end
   
@@ -15,7 +17,7 @@ class BooksController < ApplicationController
     expires_now
     @book = Book.new(book_params)
     authorize! :create, @book
-    @book.tag_names = params[:book][:tag_names]
+    @book.set_tag_names params[:book][:tag_names]
     if @book.save
       flash[:notice] = "#{@book.title} added"
       redirect_to books_path
@@ -42,9 +44,9 @@ class BooksController < ApplicationController
     @book = Book.find params[:id]
     authorize! :update, @book
     @book.update_attributes!(book_params)   
-    @book.tag_names = params[:book][:tag_names]
+    @book.set_tag_names params[:book][:tag_names]
     if @book.save
-      flash[:notice] = "#{@book.title} updated"
+      flash[:notice] = "#{@book.title} has been updated"
       redirect_to books_path
     else
       flash[:error] = "Yikes! Please check the form for any errors."

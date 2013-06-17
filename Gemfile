@@ -33,7 +33,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.0.1'
 
 # Authentication and Authorization
-gem "devise"
+gem "devise", git: "git://github.com/plataformatec/devise.git", branch: "rails4"
 gem "cancan"
 
 # Use simple_form for form building

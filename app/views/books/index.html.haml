@@ -1,4 +1,24 @@
-= tag_filter(params[:tags])
-.filtered
-  %ul.thumbnails
-    = render @books
+= tag_filter
+- if @books.empty? and params[:tags]
+  .hero-unit
+    %h1 Holy Guacamole!
+    %p
+      We've never seen a book with those tags before.
+    - if can? :create, Book
+      %p
+        Might you want to
+        = link_to "create", new_book_path(book: {tag_names: @book_tags.map(&:name).join(", ")})
+        one?
+- elsif @books.empty?
+  .hero-unit
+    %h1 Oh My!
+    %p
+      We can't help but notice that there are no books.
+    - if can? :create, Book
+      %p
+        = link_to "Adding one", new_book_path
+        might fix that.
+- else
+  .filtered
+    %ul.thumbnails
+      = render @books
