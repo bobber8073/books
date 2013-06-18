@@ -57,7 +57,11 @@
               - if @tags.empty?
                 %li No tags found. Tag some books to find them easier!
               - @tags.each do |tag|
-                %li= link_to tag.name, tag_path(tag)
+                - if params[:tags] && params[:tags].include?(tag.id.to_s)
+                  %li
+                    %a.disabled= tag.name
+                - else
+                  %li= link_to tag.name, tag_path(tag)
       %footer
         %p &copy; Chase Conklin 2013
     /

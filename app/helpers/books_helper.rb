@@ -2,7 +2,7 @@ module BooksHelper
   def tag_filter
     return unless @book_tags.present?
     content_tag :div, class: ["alert", "alert-info"] do
-      content_tag(:div) do # , raw("Viewing books tagged with: #{tag.name} (#{link_to "clear", books_path})"))
+      content_tag(:div) do
         ("Viewing books tagged with: " + @book_tags.map { |tag| link_to tag.name, remove_tag_path(tag), 'data-toggle' => "tooltip", title: "Remove", class: "tip" }.join(", ")).html_safe
       end
     end
