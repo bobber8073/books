@@ -2,7 +2,7 @@ module ApplicationHelper
   
   def tag_path(tag)
     if params[:tags]
-      books_path(tags: params[:tags].map(&:to_i).append(tag.id))
+      books_path(tags: params[:tags].map(&:to_i).append(tag.id).uniq)
     else
       books_path(tags: (Array tag.id))
     end
