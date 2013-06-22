@@ -18,19 +18,20 @@
 
 
   %body
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container
-          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.brand(href="/")
-            %i.icon-book
-          .container.nav-collapse
-            %ul.nav.pull-right
-              %form.navbar-search
-                %input.search-query{:placeholder => "Search", :type => "text", :id => "filter"}
+    .navbar-wrapper
+      .container
+        .navbar.navbar
+          .navbar-inner
+            %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            %a.brand(href="/")
+              %i.icon-book
+            .container.nav-collapse
+              %ul.nav.pull-right
+                %form.navbar-search
+                  %input.search-query{:placeholder => "Search", :type => "text", :id => "filter"}
     .container
 
       .row
