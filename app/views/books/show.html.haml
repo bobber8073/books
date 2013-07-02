@@ -16,4 +16,4 @@
 - if can? :manage, @book
   .btn-group
     = link_to "Edit", edit_book_path(@book), class: "blacktxt btn"
-    = link_to "Delete", book_path(@book), method: :delete, confirm: "Are you sure? This book will be deleted forever (a long time).", class: "whitetxt btn btn-danger"
+    = link_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure? This book will be deleted forever (a long time)." }, class: "whitetxt btn btn-danger"

@@ -8,7 +8,7 @@ gem 'rails', '4.0.0'
 gem 'mysql2'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0.rc1'
+gem 'sass-rails', '~> 4.0.0'
 
 # Use Haml for HTML
 gem 'haml-rails'
@@ -33,7 +33,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.0.1'
 
 # Authentication and Authorization
-gem "devise", git: "git://github.com/plataformatec/devise.git", branch: "rails4"
+gem "devise", github: "plataformatec/devise", branch: "rails4"
 gem "cancan"
 
 # Use simple_form for form building

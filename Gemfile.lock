@@ -227,7 +227,7 @@ DEPENDENCIES
   rmagick
   rspec-rails
   rvm-capistrano
-  sass-rails (~> 4.0.0.rc1)
+  sass-rails (~> 4.0.0)
   sdoc
   simple_form
   therubyracer
