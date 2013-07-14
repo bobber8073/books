@@ -7,7 +7,7 @@ class Book < ActiveRecord::Base
   validates :pdf, :presence => true, :unless => :pdf_exists?
   
   def self.with_tags(tags)
-    return Book.all unless tags
+    return Book.all unless tags && tags.respond_to?(:map)
     Book.where id: Tagging.select("book_id").where("tag_id" => tags.map(&:to_i)).group("book_id").having("count(tag_id) >= ?", tags.count).map(&:book_id)
   end
   
