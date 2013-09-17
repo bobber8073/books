@@ -60,7 +60,7 @@
               - @tags.each do |tag|
                 - if params[:tags] && params[:tags].include?(tag.id.to_s)
                   %li
-                    %a.disabled= tag.name
+                    %a.disabled= link_to tag.name, remove_tag_path(tag)
                 - else
                   %li= link_to tag.name, tag_path(tag)
       #footer
