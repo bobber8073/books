@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 # Use mysql2 as the database for Active Record
-gem 'mysql2'
+gem 'mysql2', "~> 0.3.15"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -74,4 +74,4 @@ end
 # Use Capistrano for deployment
 
 # Use debugger
-gem 'debugger', group: [:development, :test]
+# gem 'debugger', group: [:development, :test]
