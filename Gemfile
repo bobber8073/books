@@ -2,23 +2,23 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails'
 
 # Use mysql2 as the database for Active Record
-gem 'mysql2', "~> 0.3.15"
+gem 'mysql2'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails'
 
 # Use Haml for HTML
 gem 'haml-rails'
 gem 'html2haml'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -30,10 +30,10 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.0.1'
+gem 'jbuilder'
 
 # Authentication and Authorization
-gem "devise", github: "plataformatec/devise", branch: "rails4"
+gem "devise"
 gem "cancan"
 
 # Use simple_form for form building
@@ -45,7 +45,7 @@ gem 'thin'
 # Use bootstrap for views
 gem "therubyracer"
 gem "less-rails"
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', '~> 2.2.8'
 gem "font-awesome-rails"
 
 # Use carrierwave for uploads
