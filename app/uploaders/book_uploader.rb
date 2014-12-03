@@ -4,8 +4,8 @@ require 'carrierwave/processing/rmagick'
 class BookUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
-  include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  # include CarrierWave::RMagick
+  include CarrierWave::MiniMagick
 
   # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
   # include Sprockets::Helpers::RailsHelper
@@ -35,17 +35,37 @@ class BookUploader < CarrierWave::Uploader::Base
   def scale(width, height)
     # do something
   end
-
+  
   def convert_to_png
-    file = @file.instance_eval {@file}
-    img = Magick::Image.read(file + "[0]").first
-    img.resize!(220, 285)
-    img.write(file + ".png")
-    @file.instance_eval do 
-      @file = file + ".png"
+    file_path = @file.file.split('/').reject(&:empty?)
+    pdf_file = file_path[-1]
+    png_file = pdf_file.gsub('.pdf','.png')
+
+    path = "/#{file_path[0..-2].join('/')}"
+
+    system( "convert #{path}/#{pdf_file}[0] #{path}/#{png_file}" )
+
+    img = MiniMagick::Image.new("#{path}/#{png_file}")
+    img.resize "220x285"
+    img.format "png"
+    
+    @file.instance_eval do
+      @file = "#{path}/#{png_file}"
       @content_type = "application/png"
     end
   end
+
+
+  # def convert_to_png
+  #   file = @file.instance_eval {@file}
+  #   img = MiniMagick::Image.open(file + "[0]").first
+  #   img.resize!(220, 285)
+  #   img.write(file + ".png")
+  #   @file.instance_eval do
+  #     @file = file + ".png"
+  #     @content_type = "application/png"
+  #   end
+  # end
 
   # Create different versions of your uploaded files:
   version :thumb do

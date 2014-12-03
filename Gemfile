@@ -50,7 +50,7 @@ gem "font-awesome-rails"
 
 # Use carrierwave for uploads
 gem 'carrierwave'
-gem 'rmagick'
+gem 'mini_magick'
 
 group :test, :development do
   gem 'capistrano'
@@ -69,6 +69,10 @@ end
 # Use unicorn as the app server
 group :production do
   gem 'unicorn'
+end
+
+group :development do
+  gem 'byebug'
 end
 
 # Use Capistrano for deployment
