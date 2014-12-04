@@ -43,7 +43,7 @@ class BookUploader < CarrierWave::Uploader::Base
 
     path = "/#{file_path[0..-2].join('/')}"
 
-    system( "convert #{path}/#{pdf_file}[0] #{path}/#{png_file}" )
+    system( "/usr/local/bin/convert #{path}/#{pdf_file}[0] #{path}/#{png_file}" )
 
     img = MiniMagick::Image.new("#{path}/#{png_file}")
     img.resize "220x285"
