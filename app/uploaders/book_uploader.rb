@@ -44,11 +44,12 @@ class BookUploader < CarrierWave::Uploader::Base
     path = "/#{file_path[0..-2].join('/')}"
 
     status = system( "/usr/local/bin/convert #{path}/#{pdf_file}[0] #{path}/#{png_file}" )
-    puts "++++++++"
-    puts "The location for convert is #{system('which convert')}"
-    puts "The status for convert is #{status}"
-    puts "The file path for convert is #{path}/#{png_file}"
-    puts "++++++++"
+    
+    Rails.logger.info "++++++++"
+    Rails.logger.info "The location for convert is #{system('which convert')}"
+    Rails.logger.info "The status for convert is #{status}"
+    Rails.logger.info "The file path for convert is #{path}/#{png_file}"
+    Rails.logger.info "++++++++"
 
     img = MiniMagick::Image.new("#{path}/#{png_file}")
     img.resize "220x285"
