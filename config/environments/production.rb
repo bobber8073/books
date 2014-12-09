@@ -1,6 +1,8 @@
 Books::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  ENV['PATH'] += File::PATH_SEPARATOR + '/usr/local/bin'
+  
   # Code is not reloaded between requests.
   config.cache_classes = true
 
