@@ -46,7 +46,10 @@ class BookUploader < CarrierWave::Uploader::Base
     status = system( "/usr/local/bin/convert #{path}/#{pdf_file}[0] #{path}/#{png_file}" )
     
     Rails.logger.info "++++++++"
-    Rails.logger.info "The location for convert is #{system('which convert')}"
+    Rails.logger.info system("cat /etc/paths")
+    Rails.logger.info "++++++++"    
+    Rails.logger.info system("which convert")
+    Rails.logger.info "++++++++"    
     Rails.logger.info "The status for convert is #{status}"
     Rails.logger.info "The file path for convert is #{path}/#{png_file}"
     Rails.logger.info "++++++++"
