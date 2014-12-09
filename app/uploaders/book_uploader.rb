@@ -19,8 +19,8 @@ class BookUploader < CarrierWave::Uploader::Base
 
   def convert_to_png
     file = @file.instance_eval {@file}
-    img = Magick::ImageList.new("#{file}[0]").first
-    img.resize_to_fill!(220,285)
+    img = MiniMagick::Image.new("#{file}[0]")
+    img.resize "220x285"
     img.write(file + ".png")
     
     @file.instance_eval do
