@@ -50,7 +50,6 @@ gem "font-awesome-rails"
 
 # Use carrierwave for uploads
 gem 'carrierwave'
-gem 'rmagick'
 gem 'mini_magick'
 
 group :test, :development do
