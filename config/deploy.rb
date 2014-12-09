@@ -6,7 +6,7 @@ set :default_environment, {
 }
 
 
-set :rvm_ruby_string, 'ruby-2.1.0@books'
+set :rvm_ruby_string, 'ruby-2.1.5@books'
 set :rvm_type, :user 
 
 set :application, "books"
